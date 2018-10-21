@@ -4,13 +4,72 @@
     <meta charset="UTF-8">
     <title>Notification Timer</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css" type="text/css">
   </head>
   <body>
 
-  	<button onclick="notifyMe()">Notify Me</button>
+  	<form class="form-signin">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Online Timer with Notifications</h1>
+        <p>XYZ<p>
+      </div>
+
+      
+      	<div id="setTimer">
+      		<div class="row">
+		    	<div class="form-label-group col">
+			        <input type="number" id="inputHours" class="form-control" placeholder="Input hours" min="0" max="100" value="0" />
+			        <label for="inputHours">Hours</label>
+		    	</div>
+		    	<div class="form-label-group col">
+			        <input type="number" id="inputMinutes" class="form-control" placeholder="Input minutes" min="0" max="59" value="0" />
+			        <label for="inputMinutes">Minutes</label>
+		      	</div>
+
+		    	<div class="form-label-group col">
+			        <input type="number" id="inputSeconds" class="form-control" placeholder="Input seconds" min="0" max="59" value="0" />
+			        <label for="inputSeconds">Seconds</label>
+		      	</div>
+	      </div>
+      	  <div class = "row">
+      	  	<div class="form-label-group col">
+			        <input type="number" id="inputRepeat" class="form-control" placeholder="Input repeat" min="0" max="100" value="0" />
+			        <label for="inputHours">Repeat how many times</label>
+		    </div>
+      </div>
+  </div>
+
+<div id="timer" style="display:none;">
+      <div class="row">
+    	<div class="form-label-group col">
+	        <p id="hours">h</p>
+    	</div>
+    	<div class="form-label-group col">
+			<p id="minutes">m</p>
+      	</div>
+
+    	<div class="form-label-group col">
+			<p id="seconds">s</p>
+      	</div>
+      </div>
+      <div class="row">
+      	 <div class="form-label-group col">
+			<p id="timesLeft"># of recurrences left: </p>
+      	</div>
+      </div>
+      
+      <div class="btn btn-lg btn-primary btn-block" onclick="stopTimer()">Stop Timer</div>
+</div>
+
+      <div class="btn btn-lg btn-primary btn-block" onclick="setTimer()" id="setTimerButton">Start Timer</div>
+      <p class="mt-5 mb-3 text-muted text-center">&copy;2018</p>
+      <p class="mt-5 mb-3 text-muted text-center">Made with ❤️ by <a href="https://rosshochwert.github.io">Ross</a></p>
+    </form>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" type="text/javascript"></script>
   <script src="notificationTimer.js" type="text/javascript"></script>
   </body>
 </html>
