@@ -21,10 +21,16 @@ function notifyMe(input) {
   if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     if (input=="example"){
-    	var notification = new Notification({
-    		title: "This is what your notification will look like!",
-    		body:"Test",
-    		img: ""
+    	var notification = new Notification("This is what your notification will look like!", 
+    	{
+    		body:"See you soon!",
+    		icon: ""
+    	});
+  	} else {
+    	var notification = new Notification("Timer up! You have " + input + " recurrences left", 
+    	{
+    		body:"Keep working hard!",
+    		icon: ""
     	});
   	}
   }
@@ -78,7 +84,7 @@ function setTimer(){
 					diff=duration2-duration1;
 					duration=moment.duration(diff, 'milliseconds');
 					document.getElementById("timesLeft").innerHTML = "# of recurrences left: " + timesLeft;
-					//notifyMe();
+					notifyMe(timesLeft);
 
 			}
 		} else {
