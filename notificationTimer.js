@@ -14,24 +14,35 @@ function checkNotifications(){
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	//checkNotifications();
+	checkNotifications();
 });
 
 function notifyMe(input) {
   if (Notification.permission === "granted") {
     // If it's okay let's create a notification
+
     if (input=="example"){
-    	var notification = new Notification("This is what your notification will look like!", 
-    	{
-    		body:"See you soon!",
+    	var options = {
+    		body: "See you soon!",
     		icon: ""
-    	});
+    	}
+    	var notification = new Notification("This is what your notification will look like!", options);
+
+  	} else if (input=="timesUp") {
+    	var options2 = {
+    		body: "Thanks for playing!",
+    		icon: ""
+    	}
+    	var notification2 = new Notification("Times up! Come back and reset your timer if you want more reminders", options2);
+
+
+
   	} else {
-    	var notification = new Notification("Timer up! You have " + input + " recurrences left", 
-    	{
-    		body:"Keep working hard!",
+  		var options1 = {
+    		body: "See you soon!",
     		icon: ""
-    	});
+    	}
+    	var notification1 = new Notification("Friendly timer reminder! You have " + input + " recurrences left", options1);
   	}
   }
 
@@ -73,7 +84,8 @@ function setTimer(){
 				document.getElementById("seconds").innerHTML = "0s";
 				document.getElementById("minutes").innerHTML = "0m";
 				document.getElementById("hours").innerHTML = "0h";
-				document.getElementById("timesLeft").innerHTML = "# of recurrences left: 0";	
+				document.getElementById("timesLeft").innerHTML = "# of recurrences left: 0";
+				notifyMe("timesUp");	
 			} else {
 				duration2 = moment.duration({
 	    			'seconds': document.getElementById("inputSeconds").value,
@@ -85,7 +97,6 @@ function setTimer(){
 					duration=moment.duration(diff, 'milliseconds');
 					document.getElementById("timesLeft").innerHTML = "# of recurrences left: " + timesLeft;
 					notifyMe(timesLeft);
-
 			}
 		} else {
 			document.getElementById("seconds").innerHTML = duration.seconds() + "s";
