@@ -85,7 +85,8 @@ function setTimer(){
 				document.getElementById("minutes").innerHTML = "0m";
 				document.getElementById("hours").innerHTML = "0h";
 				document.getElementById("timesLeft").innerHTML = "# of recurrences left: 0";
-				notifyMe("timesUp");	
+				notifyMe("timesUp");
+				stopTimer();
 			} else {
 				duration2 = moment.duration({
 	    			'seconds': document.getElementById("inputSeconds").value,
@@ -110,7 +111,6 @@ function setTimer(){
 }
 
 function stopTimer(){
-	console.log("stopping timer");
 	clearInterval(timerInterval);
 	document.getElementById("setTimerButton").style.display = 'block';
 	document.getElementById("timer").style.display = 'none';
