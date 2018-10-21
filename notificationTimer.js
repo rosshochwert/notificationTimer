@@ -86,6 +86,7 @@ function setTimer(){
 				document.getElementById("hours").innerHTML = "0h";
 				document.getElementById("timesLeft").innerHTML = "# of recurrences left: 0";
 				notifyMe("timesUp");
+				clearInterval(timerInterval);
 				stopTimer();
 			} else {
 				duration2 = moment.duration({
