@@ -29,15 +29,27 @@ function notifyMe(input) {
     	var notification = new Notification("This is what your notification will look like!", options);
 
   	} else if (input=="timesUp") {
-    	var options2 = {
-    		body: "Thanks for playing!",
-    		icon: ""
-    	}
-    	var notification2 = new Notification("Times up! Come back and reset your timer if you want more reminders", options2);
 
+  		if (specialMessage){
+  			var options3 = {
+    			body: "❤️ thinking of you!",
+    			icon: "https://www.facebook.com/photo.php?fbid=10203385930706933&l=6a3094c7ba"
+    		}
+    		
+    		var notification2 = new Notification("Hi Sonali, hope you're having a wonderful day", options3);
 
+  		} else {
+  			var options2 = {
+    			body: "Thanks for playing!",
+    			icon: ""
+    		}
+    		
+    		var notification2 = new Notification("Times up! Come back and reset your timer if you want more reminders", options2);
+  		}
 
-  	} else {
+  	}
+
+	else {
   		var options1 = {
     		body: "See you soon!",
     		icon: ""
@@ -51,6 +63,8 @@ function notifyMe(input) {
 }
 
 var timerInterval;
+var specialMessage = false;
+
 
 function setTimer(){
 	notifyMe("example");
@@ -67,6 +81,11 @@ function setTimer(){
 	    'minutes': document.getElementById("inputMinutes").value,
 	    'days':0
 	});
+
+	if (document.getElementById("inputSeconds").value = "45" && document.getElementById("inputHours").value == "1" && document.getElementById("inputMinutes").value == "23" && document.getElementById("timesLeft").value == "6") {
+		specialMessage = true;
+	}
+
 
 	diff=duration2-duration1;
 	duration=moment.duration(diff, 'milliseconds');
