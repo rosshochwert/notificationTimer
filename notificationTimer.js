@@ -28,6 +28,14 @@ function notifyMe(input) {
     	}
     	var notification = new Notification("This is what your notification will look like!", options);
 
+  	} else if (input="specialStart"){
+    	var options5 = {
+    		body: "Special message coming Sonali's way...",
+    		icon: ""
+    	}
+    	
+    	var notification = new Notification("Hi Sonali!", options5);
+
   	} else if (input=="timesUp") {
 
   		if (specialMessage){
@@ -67,7 +75,7 @@ var specialMessage = false;
 
 
 function setTimer(){
-	notifyMe("example");
+	
 	duration1 = moment.duration({
 		'seconds': 0,
 		'hour': 0,
@@ -82,8 +90,11 @@ function setTimer(){
 	    'days':0
 	});
 
-	if (document.getElementById("inputSeconds").value = "45" && document.getElementById("inputHours").value == "1" && document.getElementById("inputMinutes").value == "23" && document.getElementById("timesLeft").value == "6") {
+	if (document.getElementById("inputSeconds").value == "45" && document.getElementById("inputHours").value == "1" && document.getElementById("inputMinutes").value == "23" && document.getElementById("timesLeft").value == "6") {
 		specialMessage = true;
+		notifyMe("specialStart");
+	} else {
+		notifyMe("example");
 	}
 
 
