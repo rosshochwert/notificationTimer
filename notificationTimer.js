@@ -28,12 +28,12 @@ function notifyMe(input) {
     	}
     	var notification = new Notification("This is what your notification will look like!", options);
 
-  	} else if (input="specialStart"){
+  	} else if (input=="specialStart"){
     	var options5 = {
     		body: "Special message coming Sonali's way...",
     		icon: ""
     	}
-    	
+
     	var notification = new Notification("Hi Sonali!", options5);
 
   	} else if (input=="timesUp") {
