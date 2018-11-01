@@ -90,7 +90,7 @@ function setTimer(){
 	    'days':0
 	});
 
-	if (document.getElementById("inputSeconds").value == 45 && document.getElementById("inputHours").value == 1 && document.getElementById("inputMinutes").value == 23 && document.getElementById("inputRepeat").value == 6) {
+	if (document.getElementById("inputSeconds").value == "45" && document.getElementById("inputHours").value == "1" && document.getElementById("inputMinutes").value == "23" && document.getElementById("inputRepeat").value == "6") {
 		specialMessage = true;
 		notifyMe("specialStart");
 	} else {
